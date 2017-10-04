@@ -2,6 +2,10 @@ package com.rain.structure.sort;
 
 import java.util.Arrays;
 
+/**
+ * 堆排序的时间复杂度是o(nlgn)
+ * 后面的lgn是完全二叉树的高度,前面的n是建立heap所需要的时间
+ */
 public class Sort {
     /**
      * 插入排序的思想,即是将一个数字插入到前面已经排好序的队列中.
