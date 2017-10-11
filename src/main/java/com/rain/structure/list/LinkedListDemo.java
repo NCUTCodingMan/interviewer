@@ -5,22 +5,10 @@ import java.util.Stack;
 
 public class LinkedListDemo {
     public static void main(String[] agrs) {
-        Scanner scanner = new Scanner(System.in);
 
-        LinkedList linkedList = new LinkedList();
-        while (scanner.hasNext()) {
-            int data = scanner.nextInt();
-            if (data == -1) {
-                break;
-            }
-            linkedList.createLinkedList(data);
-        }
+        String 2d;
+        System.out.println(3 + 2 + "java" + 3 + 4);
 
-        System.out.println(linkedList.isMoslems(linkedList.getHeader()));
-        linkedList.reverse(linkedList.getHeader());
-        linkedList.iterator();
-
-        scanner.close();
     }
 }
 
@@ -84,7 +72,7 @@ class LinkedList {
         }
     }
 
-    // 删除链表的中间节点(采用的方法是链表的长度没增加两个,中间元素往后移动一个)
+    // 删除链表的中间节点(采用的方法是链表的长度每增加两个,中间元素往后移动一个)
     public Node removeMidNode(Node head) {
         if (header.next == null) {
             return head;
