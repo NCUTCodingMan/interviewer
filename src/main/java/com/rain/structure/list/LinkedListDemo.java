@@ -1,12 +1,9 @@
 package com.rain.structure.list;
 
-import java.util.Scanner;
 import java.util.Stack;
 
 public class LinkedListDemo {
     public static void main(String[] agrs) {
-
-        String 2d;
         System.out.println(3 + 2 + "java" + 3 + 4);
 
     }
