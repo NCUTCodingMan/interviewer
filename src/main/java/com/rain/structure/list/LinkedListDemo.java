@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class LinkedListDemo {
     public static void main(String[] agrs) {
+        System.out.println(3 + 2 + "java" + 3 + 4);
 
     }
 }
