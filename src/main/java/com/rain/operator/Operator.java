@@ -19,6 +19,10 @@ public class Operator {
             System.out.print(array[l] + "\t");
         }       
         scanner.close();
+
+        int i = 123;
+        System.out.println(i ^ -10);
+
     }
     
     public static void swap(int[] array, int source, int des) {
