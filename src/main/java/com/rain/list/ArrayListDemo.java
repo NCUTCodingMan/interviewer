@@ -17,10 +17,29 @@ public class ArrayListDemo {
     
         ArrayList<PersonArrayList> persons = new ArrayList<PersonArrayList>();
         persons.add(new PersonArrayList());
-        System.out.println(persons.contains(new PersonArrayList()));
+        persons.add(new PersonArrayList());
+        persons.add(new PersonArrayList());
+        persons.add(new PersonArrayList());
+
+        Object[] p = (Object[])persons.toArray();
+        ((PersonArrayList)p[0]).setName("1234");
+        System.out.println(((PersonArrayList)p[0]).getName() + "\t" + persons.get(0).getName());
+
+
+    }
+
+    private static class Clone {
+        private String content = "Hello";
     }
 }
 
 class PersonArrayList {
-    
+    private String name = "hello world";
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }
