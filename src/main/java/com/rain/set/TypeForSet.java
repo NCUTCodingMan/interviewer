@@ -1,14 +1,11 @@
 package com.rain.set;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * set被设置为存放不同的元素
  */
-public class TypeForSer {
+public class TypeForSet {
     public static void main(String[] args) {
         HashSet<TreeType> treeSet = new HashSet<>();
         treeSet.add(new TreeType(1));
@@ -17,6 +14,13 @@ public class TypeForSer {
         treeSet.add(new TreeType(4));
         treeSet.add(new TreeType(1));
         System.out.println(treeSet);
+
+        Integer a = new Integer(3);
+        Integer b = 3;
+        int c = 3;
+        System.out.println(a == b);
+        System.out.println(a == c);
+        StringBuffer
     }
 
     private static class SetType {
@@ -32,7 +36,6 @@ public class TypeForSer {
 
         @Override
         public boolean equals(Object obj) {
-            System.out.println(obj instanceof TreeType ? (((TreeType) obj).i == this.i ? true : false) : false);
             return obj instanceof TreeType ? (((TreeType) obj).i == this.i ? true : false) : false;
         }
     }
