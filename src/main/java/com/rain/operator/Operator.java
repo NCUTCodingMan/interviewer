@@ -49,9 +49,7 @@ public class Operator {
     private static int transform(char[] s, int n) {
         int digit = 0;
         for (int i = 0;i < s.length;i ++) {
-            if (s[i] - 48 == 0) {
-
-            } else {
+            if (s[i] - 48 != 0) {
                 digit += power(n, i);
             }
         }
