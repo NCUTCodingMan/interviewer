@@ -20,7 +20,6 @@ public class TypeForSet {
         int c = 3;
         System.out.println(a == b);
         System.out.println(a == c);
-        StringBuffer
     }
 
     private static class SetType {
