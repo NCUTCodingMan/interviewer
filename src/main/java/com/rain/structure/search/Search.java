@@ -12,7 +12,7 @@ public class Search {
         t[0] = target;
         int i;
         for (i = t.length - 1;t[i] != target;i --);
-        return i == 0 ? false : true;
+        return i == 0;
     }
     
     /**
@@ -70,7 +70,7 @@ public class Search {
     public static void getMaxDigitInArray(Integer[] a) {
         for (int i = 0;i < a.length - 1; i ++) {
             for (int j = 0;j < a.length - 1 - i;j ++) {
-                if (compare(a[j], a[j ++])) {
+                if (compare(a[j], a[j + 1])) {
                     int temp = a[j + 1];
                     a[j + 1] = a[j];
                     a[j] = temp;
