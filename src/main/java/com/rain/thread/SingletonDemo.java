@@ -1,41 +1,48 @@
 package com.rain.thread;
 
 public class SingletonDemo {
-    private static SingletonDemo singletonDemo = null;
-    private SingletonDemo() {}
-    private static SingletonDemo getInstance() {
-        if (singletonDemo == null) {
+    private static class RecordExample {
+        private int i;
+        private boolean flag = false;
+
+        private void write() {
+            i = 1;
             try {
                 Thread.sleep(1000);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            singletonDemo = new SingletonDemo();
-            System.out.println(singletonDemo.toString());
+            flag = true;
         }
-        return singletonDemo;
+
+        private void read() {
+            if (flag) {
+                int temp = i * i;
+                System.out.println("temp" + temp);
+            } else {
+                System.out.println("....");
+            }
+        }
     }
 
     public static void main(String[] args) {
-        Thread a = new Thread() {
+        final RecordExample example = new RecordExample();
+
+        Thread c = new Thread() {
             @Override
             public void run() {
-                SingletonDemo.getInstance();
+                example.write();
             }
         };
 
-        Thread b = new Thread() {
+        Thread d = new Thread() {
             @Override
             public void run() {
-                SingletonDemo.getInstance();
+                example.read();
             }
         };
 
-        a.start();
-        b.start();
-
-        while (Thread.activeCount() > 2);
-
-        System.out.println(SingletonDemo.getInstance());
+        c.start();
+        d.start();
     }
 }
