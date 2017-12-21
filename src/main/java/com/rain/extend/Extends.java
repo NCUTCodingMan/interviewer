@@ -3,6 +3,7 @@ package com.rain.extend;
 public class Extends {
     @SuppressWarnings("unused")
     private int i;
+    private int s;
     protected int j;
     public int k;
     int l;
