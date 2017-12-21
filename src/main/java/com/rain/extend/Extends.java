@@ -6,6 +6,7 @@ public class Extends {
     protected int j;
     public int k;
     int l;
+
     protected void hello() {
         
     }
