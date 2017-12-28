@@ -4,7 +4,7 @@ public class SingletonDemo {
     private static class RecordExample {
         private int i;
         // 当flag未声明为volatile时,程序的输出有可能为"....",出现此的原因在于flag的改变对其他线程不可见
-        private boolean flag = false;
+        private volatile boolean flag = false;
 
         private void write() {
             i = 1;
