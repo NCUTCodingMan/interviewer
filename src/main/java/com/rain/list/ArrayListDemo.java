@@ -22,10 +22,8 @@ public class ArrayListDemo {
         persons.add(new PersonArrayList());
 
         Object[] p = (Object[])persons.toArray();
-        ((PersonArrayList)p[0]).setName("1234");
-        System.out.println(((PersonArrayList)p[0]).getName() + "\t" + persons.get(0).getName());
-
-
+        ((PersonArrayList) p[0]).setName("1234");
+        System.out.println(((PersonArrayList) p[0]).getName() + "\t" + persons.get(0).getName());
     }
 
     private static class Clone {

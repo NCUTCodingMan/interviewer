@@ -22,6 +22,11 @@ public class SystemCopyOf {
         for (int i = 0;i < 5;i ++) {
             System.out.println(persons[i] == personsAlias[i]);
         }
+
+        personsAlias = persons.clone();
+
+        personsAlias[0].name = "rain";
+        System.out.println(persons[0].name);
     }
 }
 

@@ -1,14 +1,7 @@
 package com.rain.map;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import java.lang.reflect.Field;
+import java.util.*;
 
 /**
  * Enumeration与Iterator
@@ -57,6 +50,28 @@ public class HashtableDemo {
         hashMap.put(null, 3);
         hashMap.put(null, 4);
         hashMap.put(null, 5);
+
+        // keySet()返回的键值可以修改
+        HashMap<String, Integer> m = new HashMap<>(16);
+        m.put("rain", 1);
+
+        Set<String> keys = m.keySet();
+        for (String s : keys) {
+            Class clazz = s.getClass();
+            Field[] fields = clazz.getDeclaredFields();
+            for (Field field : fields) {
+                if ("value".equals(field.getName())) {
+                    field.setAccessible(true);
+                    try {
+                        char[] value = (char[]) field.get(s);
+                        value[0] = 'a';
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        System.out.println(m.keySet());
     }
 }
 
