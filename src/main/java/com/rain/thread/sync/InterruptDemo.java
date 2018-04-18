@@ -41,7 +41,7 @@ public class InterruptDemo {
         }
     }
 
-    static ExecutorService executorServiceFactory(int corePoolSize) {
+    public static ExecutorService executorServiceFactory(int corePoolSize) {
         return new ThreadPoolExecutor(corePoolSize, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,
                 new SynchronousQueue<Runnable>(), new ThreadFactory() {
             @Override
