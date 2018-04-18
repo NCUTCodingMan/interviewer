@@ -1,6 +1,7 @@
 package com.rain.thread;
 
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 1.Executors所提供的各种创建线程池的方法中, 部分方法包含ThreadFactory形参
@@ -9,6 +10,7 @@ import java.util.concurrent.*;
  * 3.线程在执行过程中逃逸的异常不能捕获, 这里是写了一个MyUncaughtExceptionHandler
  * 继承Thread.UncaughtExceptionHandler, 通过设置thread.setUncaughtExceptionHandler()
  * 可以为thread对象附着一个异常处理器. 从而捕获到异常
+ *
  * @author rain
  * created on 2018/4/6
  */
@@ -21,16 +23,20 @@ public class ThreadFactoryDemo {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                System.out.println("执行任务的过程中发生异常了");
+                System.out.println("行执任务的过程中发生异常了");
                 throw new RuntimeException();
             }
         });
     }
 
     private static class MyThreadFactory implements ThreadFactory {
+        private AtomicInteger id = new AtomicInteger(0);
+        private static final String SUFFIX = "pool-thread-";
+
         @Override
         public Thread newThread(Runnable r) {
             Thread thread = new Thread(r);
+            thread.setName(SUFFIX + id.getAndIncrement());
             thread.setUncaughtExceptionHandler(new MyUncaughtExceptionHandler());
             return thread;
         }
