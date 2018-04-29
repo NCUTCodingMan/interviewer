@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 /**
  * 如何使用BigInteger做位运算,构造函数中的String用来初始化二进制
- * setBit(n) 设置某一位为1
+ * setBit(n) 设置某一位为1, 中间的'|'表示"或", 位运算符
  *  this | (1 << n)
  * testBit(n) 判断某一位是否为1,当相与的结果为1时;返回true,否则返回false
  *  this & (1 << n)

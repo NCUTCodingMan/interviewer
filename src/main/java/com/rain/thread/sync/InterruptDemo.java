@@ -31,11 +31,13 @@ public class InterruptDemo {
             try {
                 synchronized (this) {
                     while (!Thread.interrupted()) {
+                        wait();
                         count++;
                     }
                     System.out.println("线程状态变迁, 被中断了");
                 }
             } catch (Exception e) {
+                // 也会抛出异常信息
                 System.out.println(Thread.currentThread().getName() + "被中断了" + "\t" + count);
             }
         }

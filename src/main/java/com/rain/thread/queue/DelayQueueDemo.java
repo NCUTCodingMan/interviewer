@@ -8,9 +8,10 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 延迟队列
+ *  成员变量包含PriorityQueue, 因此其底层也是基于小根堆实现
  * 1.无界
- * 2.放置的对象需要实现Delayed接口
- * 3.对象只能到期, 即getDelay()返回为零才能被取出
+ * 2.队列中放置的对象需要实现Delayed接口, 并且不能为null
+ * 3.对象只能到期, 即getDelay()返回零或者小于零时才能被取出
  * 4.有序, 元素根据compareTo()排序
  *
  * @author rain
@@ -26,9 +27,7 @@ public class DelayQueueDemo {
         queue.put(new Task(current + 6000));
         queue.put(new Task(current + 7000));
         queue.put(new Task(current + 8000));
-        queue.put(new Task(current + 100));
-        System.out.println(queue);
-        System.out.println("=========================================");
+        queue.put(new Task(current + 2000));
         for (int i = 0; i < SIZE; i++) {
             try {
                 System.out.println(queue.take());

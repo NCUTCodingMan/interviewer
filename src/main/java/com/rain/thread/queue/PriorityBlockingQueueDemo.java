@@ -22,6 +22,13 @@ public class PriorityBlockingQueueDemo {
         PriorityTaskProducer producer = new PriorityTaskProducer(pool, queue);
         PriorityTaskConsumer consumer = new PriorityTaskConsumer(queue);
         pool.execute(producer);
+
+        try {
+            Thread.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         pool.execute(consumer);
     }
 }
