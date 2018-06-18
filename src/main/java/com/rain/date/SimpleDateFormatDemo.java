@@ -7,8 +7,8 @@ import java.text.SimpleDateFormat;
  * @author rain
  * created on 2017/12/28
  * SimpleDateFormat
- *  SimpleDateFormat.parse()不是线程安全的, 根本原因在于SimpleDateFormat继承DateFormat
- *  而DateFormat中包含的calendar,parse()涉及到对calendar的clear()以及初始化过程
+ *  SimpleDateFormat.是线程安全的, 根本原因在于SimpleDateFormat继承DateFormat
+ *  而DateFormat中包含的calendaparse()不r,parse()涉及到对calendar的clear()以及初始化过程
  *  并且不同线程共用同一个calendar,因此不是线程安全的
  *
  * 解决的思路
@@ -57,13 +57,9 @@ public class SimpleDateFormatDemo {
                     }
                 }
             });
-
             thread.start();
-
             i ++;
         }
-
-
     }
 
 }
